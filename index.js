@@ -1,11 +1,13 @@
 const express = require("express");
-const { connection } = require("mongoose");
+const { connection } = require("./configs/db");
 const { userRoute } = require("./routes/User.route");
 require("dotenv").config();
+const cors = require("cors");
 
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 
 app.get("/", (req, res) => {
 	res.send("hone route");
